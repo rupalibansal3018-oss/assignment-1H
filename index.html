@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Examination Portal</title>
+    <style>
+        /* Basic clean styling to look like a neat student assignment */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .exam-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            text-align: center;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        header h1 {
+            margin: 0;
+            color: #2c3e50;
+        }
+        header p {
+            margin: 5px 0 0;
+            color: #666;
+        }
+        .instructions {
+            background-color: #eef5fc;
+            border-left: 4px solid #3498db;
+            padding: 15px 20px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+        .instructions h2 {
+            margin-top: 0;
+            font-size: 18px;
+            color: #2c3e50;
+        }
+        .instructions ul {
+            margin-bottom: 0;
+            padding-left: 20px;
+        }
+        fieldset {
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        legend {
+            font-weight: bold;
+            font-size: 18px;
+            color: #2c3e50;
+            padding: 0 10px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #bbb;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        .question-block {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .question-block:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .option-label {
+            display: block;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+        .option-label input {
+            margin-right: 10px;
+        }
+        .btn-group {
+            text-align: center;
+            margin-top: 20px;
+        }
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+        .submit-btn {
+            background-color: #27ae60;
+            color: white;
+        }
+        .submit-btn:hover {
+            background-color: #219150;
+        }
+        .reset-btn {
+            background-color: #e74c3c;
+            color: white;
+        }
+        .reset-btn:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="exam-container">
+        
+        <!-- Header Section -->
+        <header>
+            <h1>Computer Science Mid-Term Examination</h1>
+            <p>Course Code: CS-101 | Duration: 45 Minutes | Total Marks: 25</p>
+        </header>
+
+        <!-- Instructions Section -->
+        <section class="instructions">
+            <h2>General Instructions</h2>
+            <ul>
+                <li>Fill in all your personal details correctly before starting the exam.</li>
+                <li>All questions are compulsory.</li>
+                <li><strong>Section A</strong> contains Single-Choice Questions (select only one correct option).</li>
+                <li><strong>Section B</strong> contains Multiple-Answer Questions (select all options that apply).</li>
+                <li>Do not refresh or close the browser tab while taking the exam.</li>
+                <li>Click the <strong>Submit Exam</strong> button once you have completed all questions.</li>
+            </ul>
+        </section>
+
+        <!-- Main Exam Form -->
+        <form action="#" method="post" onsubmit="alert('Your exam has been submitted successfully!'); return false;">
+            
+            <!-- Student Information Form -->
+            <fieldset>
+                <legend>Student Information</legend>
+                
+                <div class="form-group">
+                    <label for="studentName">Full Name:</label>
+                    <input type="text" id="studentName" name="studentName" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="rollNumber">Roll Number / Student ID:</label>
+                    <input type="text" id="rollNumber" name="rollNumber" placeholder="e.g., 2026CS104" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentEmail">Email Address:</label>
+                    <input type="email" id="studentEmail" name="studentEmail" placeholder="student@university.edu" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="department">Department / Course:</label>
+                    <select id="department" name="department" required>
+                        <option value="">-- Select Your Department --</option>
+                        <option value="cse">Computer Science & Engineering</option>
+                        <option value="it">Information Technology</option>
+                        <option value="ece">Electronics & Communication</option>
+                        <option value="bca">Bachelor of Computer Applications</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <!-- Section A: Multiple-Choice Questions (Radio Buttons) -->
+            <fieldset>
+                <legend>Section A: Multiple-Choice Questions (1 Mark Each)</legend>
+
+                <div class="question-block">
+                    <p class="question-text">1. What does HTML stand for?</p>
+                    <label class="option-label">
+                        <input type="radio" name="q1" value="a" required> Hyper Text Markup Language
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q1" value="b"> High Tech Modern Language
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q1" value="c"> Hyperlink and Text Management Language
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q1" value="d"> Home Tool Markup Language
+                    </label>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">2. Which HTML tag is used to create a hyperlink?</p>
+                    <label class="option-label">
+                        <input type="radio" name="q2" value="a" required> &lt;link&gt;
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q2" value="b"> &lt;a&gt;
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q2" value="c"> &lt;href&gt;
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q2" value="d"> &lt;url&gt;
+                    </label>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">3. Which input type allows a user to select only ONE option from a group?</p>
+                    <label class="option-label">
+                        <input type="radio" name="q3" value="a" required> checkbox
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q3" value="b"> text
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q3" value="c"> radio
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q3" value="d"> submit
+                    </label>
+                </div>
+            </fieldset>
+
+            <!-- Section B: Multiple-Answer Questions (Checkboxes) -->
+            <fieldset>
+                <legend>Section B: Multiple-Answer Questions (2 Marks Each)</legend>
+
+                <div class="question-block">
+                    <p class="question-text">4. Which of the following are valid HTML5 semantic elements? (Select all that apply)</p>
+                    <label class="option-label">
+                        <input type="checkbox" name="q4" value="article"> &lt;article&gt;
+                    </label>
+                    <label class="option-label">
+                        <input type="checkbox" name="q4" value="section"> &lt;section&gt;
+                    </label>
+                    <label class="option-label">
+                        <input type="checkbox" name="q4" value="blink"> &lt;blink&gt;
+                    </label>
+                    <label class="option-label">
+                        <input type="checkbox" name="q4" value="footer"> &lt;footer&gt;
+                    </label>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">5. Which of these languages are used for front-end web development? (Select all that apply)</p>
+                    <label class="option-label">
+                        <input type="checkbox" name="q5" value="html"> HTML
+                    </label>
+                    <label class="option-label">
+                        <input type="checkbox" name="q5" value="css"> CSS
+                    </label>
+                    <label class="option-label">
+                        <input type="checkbox" name="q5" value="python"> Python (Server-side)
+                    </label>
+                    <label class="option-label">
+                        <input type="checkbox" name="q5" value="javascript"> JavaScript
+                    </label>
+                </div>
+            </fieldset>
+
+            <!-- Submit and Reset Buttons -->
+            <div class="btn-group">
+                <button type="submit" class="submit-btn">Submit Exam</button>
+                <button type="reset" class="reset-btn">Clear Form</button>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>
